@@ -1,5 +1,10 @@
 import { Column, Entity, PrimaryGeneratedColumn } from 'typeorm'
 
+enum taskStatus {
+    pending = 'pendente',
+    completed = 'concluído',
+}
+
 @Entity({ name: 'tb_tasks' })
 export class Tasks {
     @PrimaryGeneratedColumn()
@@ -11,6 +16,6 @@ export class Tasks {
     @Column({ nullable: false, length: 1000 })
     about: string
 
-    @Column({ nullable: false })
-    status: string
+    @Column({ type: 'enum', enum: taskStatus, default: taskStatus.pending })
+    status: taskStatus
 }
