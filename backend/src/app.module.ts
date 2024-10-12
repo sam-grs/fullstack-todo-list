@@ -14,7 +14,7 @@ import { TaskModule } from './tasks/tasks.module'
             port: 3306,
             username: 'root',
             password: 'gross',
-            database: 'db_to-do_list',
+            database: 'db_to_do_list',
             entities: [Tasks],
             synchronize: true,
         }),

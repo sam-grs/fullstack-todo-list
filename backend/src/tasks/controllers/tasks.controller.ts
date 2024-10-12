@@ -1,8 +1,9 @@
-import { Get, HttpStatus, HttpCode, Post, Body, Delete, Param, ParseIntPipe } from '@nestjs/common'
+import { Get, HttpStatus, HttpCode, Post, Body, Delete, Param, ParseIntPipe, Controller } from '@nestjs/common'
 
 import { TaskService } from '../services'
 import { Tasks } from '../entities'
 
+@Controller()
 export class TaskController {
     constructor(private readonly taskService: TaskService) {}
 
