@@ -19,9 +19,10 @@ export class TaskController {
         return this.taskService.create(task)
     }
 
-    @Put()
+    @Put('/:id')
     @HttpCode(HttpStatus.OK)
-    update(@Body() task: Tasks): Promise<Tasks> {
+    update(@Param('id', ParseIntPipe) id: string, @Body() task: Tasks) {
+        task.id = id
         return this.taskService.update(task)
     }
 
