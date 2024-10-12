@@ -1,10 +1,10 @@
 import { Module } from '@nestjs/common'
 import { TypeOrmModule } from '@nestjs/typeorm'
 
-import { AppController } from './app.controller'
-import { AppService } from './app.service'
 import { Tasks } from './tasks/entities'
 import { TaskModule } from './tasks/tasks.module'
+import { Users } from './users/entities'
+import { UserModule } from './users/users.module'
 
 @Module({
     imports: [
@@ -15,10 +15,11 @@ import { TaskModule } from './tasks/tasks.module'
             username: 'root',
             password: 'gross',
             database: 'db_to_do_list',
-            entities: [Tasks],
+            entities: [Tasks, Users],
             synchronize: true,
         }),
         TaskModule,
+        UserModule,
     ],
     controllers: [],
     providers: [],

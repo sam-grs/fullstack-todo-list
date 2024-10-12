@@ -3,7 +3,7 @@ import { Get, HttpStatus, HttpCode, Post, Body, Delete, Param, ParseIntPipe, Con
 import { TaskService } from '../services'
 import { Tasks } from '../entities'
 
-@Controller()
+@Controller('/tasks')
 export class TaskController {
     constructor(private readonly taskService: TaskService) {}
 
