@@ -1,9 +1,11 @@
 import { Transform, TransformFnParams } from 'class-transformer'
 import { IsEmail, IsNotEmpty, MinLength } from 'class-validator'
-import { Column, Entity, PrimaryGeneratedColumn } from 'typeorm'
+import { Column, Entity, OneToMany, PrimaryGeneratedColumn } from 'typeorm'
+
+import { Tasks } from 'src/tasks'
 
 @Entity({ name: 'tb_users' })
-export class Users {
+export class User {
     @PrimaryGeneratedColumn()
     id: string
 
@@ -21,4 +23,7 @@ export class Users {
     @IsNotEmpty()
     @Column({ nullable: false, length: 1000 })
     password: string
+
+    @OneToMany(() => Tasks, (task) => task.user)
+    tasks: Tasks[]
 }

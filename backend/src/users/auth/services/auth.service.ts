@@ -12,19 +12,24 @@ export class AuthService {
     ) {}
 
     async validateUser(user: any, passwordEntered: string): Promise<any> {
-        if (!user) {
+        const findUser = await this.userService.findByUser(user.email)
+
+        if (!findUser) {
             throw new HttpException('Usuário não encontrado!', HttpStatus.NOT_FOUND)
         }
 
-        if (passwordEntered !== user.password) {
+        if (passwordEntered !== findUser.password) {
             throw new HttpException('Senha inválida!', HttpStatus.UNAUTHORIZED)
         }
+
+        const { password, ...result } = findUser
+        return result
     }
 
     async login(userLogin: LoginUser) {
         const payload = { sub: userLogin.email }
         const findUser = await this.userService.findByUser(userLogin.email)
-        await this.validateUser(findUser, userLogin.password)
+        // await this.validateUser(findUser, userLogin.password)
 
         return {
             id: findUser.id,

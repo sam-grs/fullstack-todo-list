@@ -1,8 +1,10 @@
-import { Column, Entity, PrimaryGeneratedColumn } from 'typeorm'
+import { Column, Entity, ManyToOne, PrimaryGeneratedColumn } from 'typeorm'
+
+import { User } from 'src/users'
 
 enum taskStatus {
-    pending = 'pendente',
-    completed = 'concluído',
+    pending = 'pending',
+    completed = 'completed',
 }
 
 @Entity({ name: 'tb_tasks' })
@@ -18,4 +20,9 @@ export class Tasks {
 
     @Column({ type: 'enum', enum: taskStatus, default: taskStatus.pending })
     status: taskStatus
+
+    @ManyToOne(() => User, (user) => user.tasks, {
+        onDelete: 'CASCADE',
+    })
+    user: User
 }

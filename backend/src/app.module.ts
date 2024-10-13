@@ -3,7 +3,7 @@ import { TypeOrmModule } from '@nestjs/typeorm'
 import { ConfigModule } from '@nestjs/config'
 
 import { Tasks, TaskModule } from './tasks'
-import { Users, UserModule, LoginUser, AuthModule } from './users'
+import { User, UserModule, AuthModule } from './users'
 
 @Module({
     imports: [
@@ -17,7 +17,7 @@ import { Users, UserModule, LoginUser, AuthModule } from './users'
             username: 'root',
             password: 'gross',
             database: 'db_to_do_list',
-            entities: [Tasks, Users],
+            entities: [Tasks, User],
             synchronize: true,
         }),
         TaskModule,

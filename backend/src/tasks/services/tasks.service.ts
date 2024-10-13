@@ -12,7 +12,7 @@ export class TaskService {
     ) {}
 
     async findAll(): Promise<Tasks[]> {
-        return await this.taskRepository.find()
+        return await this.taskRepository.find({ relations: { user: true } })
     }
 
     async create(task: Tasks): Promise<Tasks> {
