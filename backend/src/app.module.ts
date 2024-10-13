@@ -1,13 +1,15 @@
 import { Module } from '@nestjs/common'
 import { TypeOrmModule } from '@nestjs/typeorm'
+import { ConfigModule } from '@nestjs/config'
 
-import { AppController } from './app.controller'
-import { AppService } from './app.service'
-import { Tasks } from './tasks/entities'
-import { TaskModule } from './tasks/tasks.module'
+import { Tasks, TaskModule } from './tasks'
+import { Users, UserModule, LoginUser, AuthModule } from './users'
 
 @Module({
     imports: [
+        ConfigModule.forRoot({
+            isGlobal: true,
+        }),
         TypeOrmModule.forRoot({
             type: 'mysql',
             host: 'localhost',
@@ -15,10 +17,12 @@ import { TaskModule } from './tasks/tasks.module'
             username: 'root',
             password: 'gross',
             database: 'db_to_do_list',
-            entities: [Tasks],
+            entities: [Tasks, Users],
             synchronize: true,
         }),
         TaskModule,
+        AuthModule,
+        UserModule,
     ],
     controllers: [],
     providers: [],
