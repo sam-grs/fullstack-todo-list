@@ -7,6 +7,7 @@ import { Bcrypt } from './bcrypt'
 import { AuthService } from './services'
 import { AuthController } from './controllers'
 import { JwtStrategy, LocalStrategy } from './strategy'
+// import { jwtConstants } from './constants'
 
 @Module({
     imports: [
@@ -14,10 +15,11 @@ import { JwtStrategy, LocalStrategy } from './strategy'
         PassportModule,
         JwtModule.register({
             secret: process.env.JWT_SECRET,
+            // secret: jwtConstants.secret,
             // signOptions: { expiresIn: '1h' },
         }),
     ],
-    providers: [Bcrypt, AuthService, LocalStrategy, JwtStrategy],
+    providers: [Bcrypt, AuthService, JwtStrategy, LocalStrategy],
     controllers: [AuthController],
     exports: [Bcrypt],
 })
