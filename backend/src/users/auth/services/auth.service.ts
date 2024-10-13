@@ -2,32 +2,29 @@ import { HttpException, HttpStatus, Injectable } from '@nestjs/common'
 import { JwtService } from '@nestjs/jwt'
 
 import { UserService } from '../../services'
-import { Bcrypt } from '../bcrypt'
 import { LoginUser } from '../entities/login-user.entity'
 
 @Injectable()
 export class AuthService {
     constructor(
         private userService: UserService,
-        private jwtService: JwtService,
-        private bcrypt: Bcrypt
+        private jwtService: JwtService
     ) {}
 
-    async validateUser(email: string, password: string): Promise<any> {
-        const user = await this.userService.findByUser(email)
-        if (!user) throw new HttpException('Usuário não encontrado!', HttpStatus.NOT_FOUND)
-        const matchPassword = await this.bcrypt.comparePassword(password, user.password)
-
-        if (user && matchPassword) {
-            const { password, ...response } = user
-            return response
+    async validateUser(user: any, passwordEntered: string): Promise<any> {
+        if (!user) {
+            throw new HttpException('Usuário não encontrado!', HttpStatus.NOT_FOUND)
         }
-        return null
+
+        if (passwordEntered !== user.password) {
+            throw new HttpException('Senha inválida!', HttpStatus.UNAUTHORIZED)
+        }
     }
 
     async login(userLogin: LoginUser) {
         const payload = { sub: userLogin.email }
         const findUser = await this.userService.findByUser(userLogin.email)
+        await this.validateUser(findUser, userLogin.password)
 
         return {
             id: findUser.id,
