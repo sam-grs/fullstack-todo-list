@@ -1,4 +1,4 @@
-# To-Do List Full-Stack Application 
+# To-Do List Full-Stack Application - em andamento
 
 ## Desafio de Desenvolvimento Full-Stack – To-Do List Node.js
 
