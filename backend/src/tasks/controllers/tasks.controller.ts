@@ -27,6 +27,12 @@ export class TaskController {
         return this.taskService.findAll()
     }
 
+    @Get('/:id')
+    @HttpCode(HttpStatus.OK)
+    findId(@Param('id', ParseIntPipe) id: string) {
+        return this.taskService.findId(id)
+    }
+
     @Post()
     @HttpCode(HttpStatus.CREATED)
     create(@Body() task: Tasks): Promise<Tasks> {
