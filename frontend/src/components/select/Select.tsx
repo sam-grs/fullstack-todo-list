@@ -19,8 +19,10 @@ export const Select: FC<SelectProps> = ({ name, values = [], fullWidth = false, 
                         <option value="Selecione uma opção" disabled>
                             Selecione uma opção
                         </option>
-                        {values.map((value) => (
-                            <option value={value}>{value}</option>
+                        {values.map((value: any) => (
+                            <option key={value.id} value={value}>
+                                {value}
+                            </option>
                         ))}
                     </select>
                 </>
