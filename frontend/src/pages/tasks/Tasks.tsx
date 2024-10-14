@@ -74,20 +74,21 @@ export function Task() {
 
                 <div className="grid grid-cols-3 items-center gap-6">
                     {lists.map((item: any) => (
-                        <Card key={item.id} title={item.title}>
-                            <div className="flex justify-between mb-3">
-                                <p>
-                                    <strong>Status:</strong> {item.status === 'pending' ? 'pendente' : 'completo'}
-                                </p>
-                                <p>
-                                    <strong>Data: </strong>
-                                    {formatDate(item.date_time)}
+                        <Card key={item.id} title={item.title} className="flex flex-col h-full">
+                            <div className="flex-grow h-full">
+                                <div className="flex justify-between mb-3">
+                                    <p className="text-gray-700">
+                                        <strong>Status:</strong> {item.status === 'pending' ? 'pendente' : 'completo'}
+                                    </p>
+                                    <p className="text-gray-700">
+                                        <strong>Data: </strong>
+                                        {formatDate(item.date_time)}
+                                    </p>
+                                </div>
+                                <p className="text-gray-700">
+                                    <strong>Descrição:</strong> {item.about}
                                 </p>
                             </div>
-                            <p>
-                                <strong>Descrição:</strong> {item.about}
-                            </p>
-
                             <div className="flex justify-between mt-4">
                                 <Button
                                     onClick={() => handleEdit(item.id)}
