@@ -19,7 +19,7 @@ export const find = async (url: string, setData: (data: any) => void, header: ob
 
 // ver se precisa mudar
 export const update = async (url: string, data: object, setData: (data: any) => void, header: object) => {
-    const response = await backendAPI.post(url, data, header)
+    const response = await backendAPI.put(url, data, header)
     setData(response.data)
 }
 

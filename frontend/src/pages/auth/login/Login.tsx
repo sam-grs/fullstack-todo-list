@@ -28,18 +28,18 @@ export const Login: FC = () => {
     })
 
     const onSubmit: SubmitHandler<LoginProps> = async (data: LoginProps) => {
-        console.log('data', data)
         setIsLoading(true)
         try {
             await auth('users/login', data, setUser)
-            localStorage.setItem('token', user.token as string)
+            sessionStorage.setItem('token', user.token as string)
             Alert({ message: 'Usuário logado!' })
         } catch (error: any) {
             Alert({ message: 'O usuário ou senha não estão corretos.', type: 'error' })
             console.error(error)
         } finally {
             setIsLoading(false)
-            navigate(routes.tasks)
+            // corrigir esse erro
+            if (user.token) navigate(routes.tasks)
         }
     }
 

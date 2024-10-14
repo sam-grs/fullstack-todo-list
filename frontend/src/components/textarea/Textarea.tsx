@@ -1,24 +1,22 @@
 import { FC } from 'react'
 import { Controller } from 'react-hook-form'
 
-type InputProps = {
+type TextareaProps = {
     name: string
-    type?: 'text' | 'email' | 'password' | 'date' | 'number'
     placeholder: string
     fullWidth?: boolean
     control: any
     errors: any
 }
 
-export const Input: FC<InputProps> = ({ type = 'text', fullWidth = false, name, placeholder, control, errors }) => {
+export const Textarea: FC<TextareaProps> = ({ name, placeholder, fullWidth = false, control, errors }) => {
     return (
         <Controller
             name={name}
             control={control}
             render={({ field }) => (
                 <>
-                    <input
-                        type={type}
+                    <textarea
                         placeholder={placeholder}
                         className={`py-2 px-4 border border-black rounded ${fullWidth && 'w-full'}`}
                         {...field}

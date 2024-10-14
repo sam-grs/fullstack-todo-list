@@ -12,12 +12,12 @@ export function Header() {
 
     return (
         !auth && (
-            <div className="flex justify-between p-4 bg-indigo-700 text-white w-full text-lg">
-                <Link to={routes.tasks} className="text-2xl font-bold">
-                    Logo
+            <div className="flex justify-between p-8 bg-black text-white w-full text-lg">
+                <Link to={routes.tasks} className="text-1xl font-semibold">
+                    Projeto TO-DO List
                 </Link>
 
-                <Link to={routes.login} onClick={logout}>
+                <Link className="text-1xl font-semibold" to={routes.login} onClick={logout}>
                     Sair
                 </Link>
             </div>

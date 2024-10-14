@@ -9,7 +9,7 @@ export function Footer() {
 
     return (
         !auth && (
-            <div className="flex justify-center bg-indigo-700 text-white">
+            <div className="flex justify-center bg-black text-white">
                 <div className="container flex flex-col items-center py-4 gap-2">
                     <h4>Teste Mayo 2024</h4>
 
