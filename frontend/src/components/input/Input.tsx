@@ -10,7 +10,7 @@ type InputProps = {
     errors: any
 }
 
-export const Input: FC<InputProps> = ({ name, type = 'text', placeholder, fullWidth = false, control, errors }) => {
+export const Input: FC<InputProps> = ({ type = 'text', fullWidth = false, name, placeholder, control, errors }) => {
     return (
         <Controller
             name={name}
