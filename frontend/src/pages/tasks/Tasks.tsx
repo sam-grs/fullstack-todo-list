@@ -77,7 +77,7 @@ export function Task() {
                         <Card key={item.id} title={item.title}>
                             <div className="flex justify-between mb-3">
                                 <p>
-                                    <strong>Status:</strong> {item.status}
+                                    <strong>Status:</strong> {item.status === 'pending' ? 'pendente' : 'completo'}
                                 </p>
                                 <p>
                                     <strong>Data: </strong>

@@ -26,10 +26,8 @@ export const Register: FC = () => {
         resolver: zodResolver(validationSchema),
         defaultValues: initialValues,
     })
-    console.log('user', user)
 
     const onSubmit: SubmitHandler<RegisterProps> = async (data: RegisterProps) => {
-        console.log('data', data)
         setIsLoading(true)
         try {
             await auth('users/register', data, setUser)

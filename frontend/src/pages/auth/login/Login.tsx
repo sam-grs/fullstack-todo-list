@@ -27,9 +27,7 @@ export const Login: FC = () => {
         defaultValues: initialValues,
     })
 
-    console.log('user', user.token)
     const onSubmit: SubmitHandler<LoginProps> = async (data: LoginProps) => {
-        console.log('data', data)
         setIsLoading(true)
         try {
             await auth('users/login', data, setUser)

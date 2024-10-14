@@ -9,9 +9,20 @@ import { Modal } from './Modal'
 import { initialValues, validationSchema } from './Task.schema'
 import { routes } from 'routes'
 
-export type TaskProps = typeof initialValues
+type TaskProps = typeof initialValues
 
-export function TaskForm({ isOpen, setIsOpen, id, onUpdate, isEditing }: any) {
+// arrumar essa tipagem
+type TaskFormProps = {
+    isOpen: boolean
+    setIsOpen: any
+    id: number | null
+    onUpdate: any
+    isEditing: boolean
+}
+
+// o token do sessionStorage permanece, melhor jeito é tirar as validacoes
+
+export function TaskForm({ isOpen, setIsOpen, id, onUpdate, isEditing }: TaskFormProps) {
     const [isLoading, setIsLoading] = useState(false)
     const [task, setTask] = useState<TaskProps>(initialValues)
     const navigate = useNavigate()
@@ -42,12 +53,9 @@ export function TaskForm({ isOpen, setIsOpen, id, onUpdate, isEditing }: any) {
                 { headers: { Authorization: token } }
             )
         } else {
-            console.log('reseta?')
-            reset({})
+            reset(initialValues)
         }
     }, [id, reset, token])
-
-    console.log(token)
 
     const onSubmit: SubmitHandler<TaskProps> = async (data: any) => {
         setIsLoading(true)
