@@ -17,12 +17,9 @@ export function Header() {
                     Logo
                 </Link>
 
-                <div className="flex gap-4">
-                    <Link to={routes.login}>Entrar</Link>
-                    <Link to={routes.login} onClick={logout}>
-                        Sair
-                    </Link>
-                </div>
+                <Link to={routes.login} onClick={logout}>
+                    Sair
+                </Link>
             </div>
         )
     )

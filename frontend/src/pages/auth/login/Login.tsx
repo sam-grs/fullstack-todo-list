@@ -14,7 +14,7 @@ export type LoginProps = z.infer<typeof validationSchema>
 
 export const Login: FC = () => {
     const navigate = useNavigate()
-    const [user, setUser] = useState<LoginProps>(initialValues)
+    const [user, setUser] = useState<LoginProps & { token?: string }>(initialValues)
     const [isLoading, setIsLoading] = useState(false)
     const [visiblePassword, setVisiblePassword] = useState(false)
     const viewPassword = () => setVisiblePassword((prev) => !prev)
@@ -32,6 +32,7 @@ export const Login: FC = () => {
         setIsLoading(true)
         try {
             await auth('users/login', data, setUser)
+            localStorage.setItem('token', user.token as string)
             Alert({ message: 'Usuário logado!' })
         } catch (error: any) {
             Alert({ message: 'O usuário ou senha não estão corretos.', type: 'error' })
