@@ -1,4 +1,4 @@
-import { Column, Entity, ManyToOne, PrimaryGeneratedColumn } from 'typeorm'
+import { Column, Entity, ManyToOne, PrimaryGeneratedColumn, UpdateDateColumn } from 'typeorm'
 
 import { User } from 'src/users'
 
@@ -20,6 +20,9 @@ export class Tasks {
 
     @Column({ type: 'enum', enum: taskStatus, default: taskStatus.pending })
     status: taskStatus
+
+    @UpdateDateColumn()
+    date_time: Date
 
     @ManyToOne(() => User, (user) => user.tasks, {
         onDelete: 'CASCADE',
