@@ -1,6 +1,6 @@
 import axios from 'axios'
 
-const backendAPI = axios.create({ baseURL: 'http://localhost:4000/' })
+const backendAPI = axios.create({ baseURL: process.env.API_URL })
 
 export const auth = async (url: string, data: object, setData: (data: any) => void) => {
     const response = await backendAPI.post(url, data)
