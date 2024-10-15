@@ -1,4 +1,7 @@
-# To-Do List Full-Stack Application - em andamento
+# To-Do List Full-Stack Application
+
+**AVISO:** O servidor demora para carregar uns 5 minutos e fica inativo depois de 15 minutos sem uso. 
+**Link do deploy web:** https://fullstack-todo-list-ten.vercel.app/
 
 ## Desafio de Desenvolvimento Full-Stack – To-Do List Node.js
 
@@ -35,13 +38,13 @@ O frontend, desenvolvido em React, oferece uma interface simples e interativa pa
 
 ### Deploy e Cloud Computing
 
-- [ ] A aplicação está implantada em uma plataforma de nuvem pública (AWS/Vercel).
-- [ ] A aplicação é acessível publicamente via HTTPS.
+- [x] A aplicação está implantada em uma plataforma de nuvem pública.
+- [x] A aplicação é acessível publicamente via HTTPS.
 - [ ] Utilização de serviço de armazenamento em nuvem para gerenciar arquivos estáticos.
 
 ### Resolução de Problemas
 
-Ainda vou atualizar aqui.
+Enfrentei dificuldades ao tentar implementar meu projeto na AWS e com Google Cloud. No momento implementei o deploy com render.
 
 ### Segurança
 
@@ -56,7 +59,7 @@ Ainda vou atualizar aqui.
 - Node.js (v14+)
 - MySQL
 - Redis
-- NPM ou Yarn
+- PNPM
 
 ### Instalação
 
