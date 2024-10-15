@@ -44,7 +44,7 @@ O frontend, desenvolvido em React, oferece uma interface simples e interativa pa
 
 ### Resolução de Problemas
 
-Enfrentei dificuldades ao tentar implementar meu projeto na AWS e com Google Cloud. No momento implementei o deploy com render.
+Enfrentei dificuldades ao tentar implementar meu projeto na AWS ou com Google Cloud. No momento implementei o deploy com render. Por conta do tempo levado em tentar implementar nessas ferramentas novas, não utilizei o Redis.
 
 ### Segurança
 
