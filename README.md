@@ -58,7 +58,6 @@ Enfrentei dificuldades ao tentar implementar meu projeto na AWS ou com Google Cl
 
 - Node.js (v14+)
 - MySQL
-- Redis
 - PNPM
 
 ### Instalação
@@ -80,6 +79,28 @@ Enfrentei dificuldades ao tentar implementar meu projeto na AWS ou com Google Cl
 5. O frontend pode ser executado separadamente em outro terminal com:
    ```bash
    pnpm run dev
+
+## Tecnologias Utilizadas
+
+## Frontend
+- **React**
+- **Vite**
+- **React Hook Form**
+- **Zod**
+- **Tailwind CSS**
+- **TypeScript**
+- **Vercel**
+
+## Backend
+- **NestJS**
+- **MySQL**
+- **TypeORM**
+- **Class Validator**
+- **Class Transformer**
+- **PostgreSQL**
+- **Render**
+- **TypeScript**
+
    
 ## Tecnologias Utilizadas
 
